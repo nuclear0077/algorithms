@@ -34,4 +34,4 @@ print_linked_list(n1)
 #first -> second -> third -> None
 node, index, value = n1, 2, 'new_node'
 head = insert_node(node, index, value)
-print_linked_list(n1)
+print_linked_list(head)
