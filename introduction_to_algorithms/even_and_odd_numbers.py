@@ -1,3 +1,4 @@
+# https://contest.yandex.ru/contest/23389/problems/B/
 def main() -> None:
     numbers = list(map(int, input().split()))
 

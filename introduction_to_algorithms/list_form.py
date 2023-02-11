@@ -1,3 +1,4 @@
+https://contest.yandex.ru/contest/23389/problems/K/
 def main() -> None:
     n = int(input())
     x = str(input()).replace(' ', '')

@@ -1,3 +1,4 @@
+# https://contest.yandex.ru/contest/23389/problems/L/
 def main() -> None:
     s = input()
     t = input()

@@ -1,4 +1,5 @@
 # ID 81781529
+# https://contest.yandex.ru/contest/23390/problems/B/
 from collections import Counter
 from typing import Tuple
 

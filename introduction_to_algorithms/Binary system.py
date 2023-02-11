@@ -1,3 +1,4 @@
+# https://contest.yandex.ru/contest/23389/problems/H/
 def main(num_first, num_second) -> None:
     diff_symb = len(num_first) - len(num_second)
 

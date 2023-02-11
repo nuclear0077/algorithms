@@ -1,4 +1,5 @@
 # ID 81849212
+# https://contest.yandex.ru/contest/23390/problems/A/
 from typing import List, Tuple
 
 INFINITY = float('inf')

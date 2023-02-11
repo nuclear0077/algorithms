@@ -1,3 +1,4 @@
+# https://contest.yandex.ru/contest/23389/problems/F/
 import string
 
 # переводим строки в нижний регистр, удаляем пробелы, пунктуацию

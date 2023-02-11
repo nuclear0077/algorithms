@@ -1,3 +1,4 @@
+# https://contest.yandex.ru/contest/23389/problems/C/
 def main() -> None:
     n = int(input())
     m = int(input())

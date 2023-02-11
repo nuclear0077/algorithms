@@ -1,3 +1,4 @@
+# https://contest.yandex.ru/contest/23389/problems/J/
 def factorize(n):
     divisor = 2
     result = []
