@@ -1128,7 +1128,7 @@
 
 <details>
 <summary>
-<b>Дек Финальное задание (<a href="Data_Structures/final_deque.py">final_deque.py</a></b>)
+<b>Дек Финальное задание (<a href="Data_Structures/deque.py">deque.py</a></b>)
 </summary>
 
 #### Условие:
