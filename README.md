@@ -1033,7 +1033,7 @@ Value — целое число, по модулю не превосходяще
 
 <details>
 <summary>
-<b>Калькулятор Финальное задание (<a href="Data_Structures/sprint_12_final/final_calc.py">final_calc.py</a></b>)
+<b>Калькулятор Финальное задание (<a href="Data_Structures/sprint_12_final/calc.py">calc.py</a></b>)
 </summary>
 
 #### Условие:
