@@ -640,7 +640,7 @@
 ## Основные структуры данных с финальными задачами.
 <details>
 <summary>
-<b>Мониторинг (<a href="data_structures/monitoring.py">monitoring.py</a></b>)
+<b>Мониторинг (<a href="Data_Structures/monitoring.py">monitoring.py</a></b>)
 </summary>
 
 #### Условие:
@@ -695,7 +695,7 @@
 
 <details>
 <summary>
-<b>Список дел (<a href="data_structures/to_do_list.py">to_do_list.py</a></b>)
+<b>Список дел (<a href="Data_Structures/to_do_list.py">to_do_list.py</a></b>)
 </summary>
 
 #### Условие:
@@ -720,7 +720,7 @@
 
 <details>
 <summary>
-<b>Нелюбимое дело (<a href="data_structures/unloved_business.py">unloved_business.py</a></b>)
+<b>Нелюбимое дело (<a href="Data_Structures/unloved_business.py">unloved_business.py</a></b>)
 </summary>
 
 #### Условие:
@@ -749,7 +749,7 @@
 
 <details>
 <summary>
-<b>Заботливая мама (<a href="data_structures/caring_mother.py">caring_mother.py</a></b>)
+<b>Заботливая мама (<a href="Data_Structures/caring_mother.py">caring_mother.py</a></b>)
 </summary>
 
 #### Условие:
@@ -776,7 +776,7 @@
 
 <details>
 <summary>
-<b>Всё наоборот (<a href="data_structures/other_way_around.py">other_way_around.py</a></b>)
+<b>Всё наоборот (<a href="Data_Structures/other_way_around.py">other_way_around.py</a></b>)
 </summary>
 
 #### Условие:
@@ -803,7 +803,7 @@
 
 <details>
 <summary>
-<b>Стек - Max (<a href="data_structures/stack_max.py">stack_max.py</a></b>)
+<b>Стек - Max (<a href="Data_Structures/stack_max.py">stack_max.py</a></b>)
 </summary>
 
 #### Условие:
@@ -860,7 +860,7 @@
 
 <details>
 <summary>
-<b>Скобочная последовательность (<a href="data_structures/bracket_sequence.py">bracket_sequence.py</a></b>)
+<b>Скобочная последовательность (<a href="Data_Structures/bracket_sequence.py">bracket_sequence.py</a></b>)
 </summary>
 
 #### Условие:
@@ -910,7 +910,7 @@
 
 <details>
 <summary>
-<b>Ограниченная очередь (<a href="data_structures/limited_queue.py">limited_queue.py</a></b>)
+<b>Ограниченная очередь (<a href="Data_Structures/limited_queue.py">limited_queue.py</a></b>)
 </summary>
 
 #### Условие:
@@ -973,7 +973,7 @@
 
 <details>
 <summary>
-<b>Списочная очередь (<a href="data_structures/list_queue.py">list_queue.py</a></b>)
+<b>Списочная очередь (<a href="Data_Structures/list_queue.py">list_queue.py</a></b>)
 </summary>
 
 #### Условие:
@@ -1032,7 +1032,7 @@
 
 <details>
 <summary>
-<b>Рекурсивные числа Фибоначчи (<a href="data_structures/recursive_Fibonacci_numbers.py">recursive_Fibonacci_numbers.py</a></b>)
+<b>Рекурсивные числа Фибоначчи (<a href="Data_Structures/recursive_Fibonacci_numbers.py">recursive_Fibonacci_numbers.py</a></b>)
 </summary>
 
 #### Условие:
@@ -1075,7 +1075,7 @@
 
 <details>
 <summary>
-<b>Фибоначчи по модулю (<a href="data_structures/Fibonacci_modulo.py">Fibonacci_modulo.py</a></b>)
+<b>Фибоначчи по модулю (<a href="Data_Structures/Fibonacci_modulo.py">Fibonacci_modulo.py</a></b>)
 </summary>
 
 #### Условие:
@@ -1128,7 +1128,7 @@
 
 <details>
 <summary>
-<b>Дек Финальное задание (<a href="data_structures/final_deque.py">final_deque.py</a></b>)
+<b>Дек Финальное задание (<a href="Data_Structures/final_deque.py">final_deque.py</a></b>)
 </summary>
 
 #### Условие:
@@ -1184,7 +1184,7 @@ Value — целое число, по модулю не превосходяще
 
 <details>
 <summary>
-<b>Калькулятор Финальное задание (<a href="data_structures/final_calc.py">final_calc.py</a></b>)
+<b>Калькулятор Финальное задание (<a href="Data_Structures/final_calc.py">final_calc.py</a></b>)
 </summary>
 
 #### Условие:
