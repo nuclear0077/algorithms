@@ -1,59 +1,98 @@
-# 82247719
+# 82380096
 # https://contest.yandex.ru/contest/23759/problems/B/
+from typing import Dict, Union
+
+
 class Stack:
     def __init__(self):
         self.items = []
 
-    def push(self, item):
+    def push(self, item: Union[int, float]) -> None:
         self.items.append(item)
 
-    def pop(self):
+    def pop(self) -> Union[int, float]:
         return self.items.pop()
 
-    def peek(self):
-        return self.items[-1]
 
-    def size(self):
-        return len(self.items)
+class Calculator:
+    def __init__(self) -> None:
+        self.__stack = Stack()
+
+    def multiply(self) -> None:
+        num_second = self.__stack.pop()
+        num_first = self.__stack.pop()
+        result = num_first * num_second
+        self.__stack.push(result)
+
+    def integer_devision(self) -> None:
+        num_second = self.__stack.pop()
+        num_first = self.__stack.pop()
+        result = num_first // num_second
+        self.__stack.push(result)
+
+    def subtraction(self) -> None:
+        num_second = self.__stack.pop()
+        num_first = self.__stack.pop()
+        result = num_first - num_second
+        self.__stack.push(result)
+
+    def addition(self) -> None:
+        num_second = self.__stack.pop()
+        num_first = self.__stack.pop()
+        result = num_first + num_second
+        self.__stack.push(result)
+
+    def push(self, values: Union[int, float]) -> None:
+        self.__stack.push(values)
+
+    def pop(self) -> Union[int, float]:
+        try:
+            return self.__stack.pop()
+        except IndexError:
+            raise IndexError('pop from empty stack')
 
 
 def input_data():
     return input().split()
 
 
+def run_calcalation_method(calc: Calculator,
+                           action: str,
+                           value: Union[int, float] = None):
+    run_command = getattr(calc, action)
+    if action == 'push':
+        run_command(value)
+    elif action == 'pop':
+        print(run_command())
+    else:
+        run_command()
+
+
+def run(calc: Calculator, expression):
+    actions: Dict[str, str] = {
+        '+': 'addition',
+        '-': 'subtraction',
+        '/': 'integer_devision',
+        '//': 'integer_devision',
+        '*': 'multiply'
+    }
+    for item in expression:
+        try:
+            if item not in actions:
+                run_calcalation_method(
+                    calc=calc, action='push', value=int(item))
+                continue
+            run_calcalation_method(calc=calc, action=actions.get(item))
+        except Exception as e:
+            print(f'произошла ошибка {e}')
+        else:
+            run_calcalation_method(calc=calc, action='pop')
+
+
 def main():
-    stack = Stack()
-    polish_notation = input_data()
-    operations = '*/-+'
-    for values in polish_notation:
-        if values not in operations:
-            stack.push(int(values))
-            continue
-        if values == '-':
-            num_second = stack.pop()
-            num_first = stack.pop()
-            result = num_first - num_second
-            stack.push(result)
-            continue
-        if values == '+':
-            num_second = stack.pop()
-            num_first = stack.pop()
-            result = num_first + num_second
-            stack.push(result)
-            continue
-        if values == '*':
-            num_second = stack.pop()
-            num_first = stack.pop()
-            result = num_first * num_second
-            stack.push(result)
-            continue
-        if values == '/':
-            num_second = stack.pop()
-            num_first = stack.pop()
-            result = num_first // num_second
-            stack.push(result)
-            continue
-    print(stack.pop())
+    calc = Calculator()
+    expression = input_data()
+    run(calc=calc, expression=expression)
 
 
 if __name__ == '__main__':
