@@ -1,4 +1,4 @@
-# 82380096
+# 82380879
 # https://contest.yandex.ru/contest/23759/problems/B/
 from typing import Dict, Union
 
@@ -11,7 +11,10 @@ class Stack:
         self.items.append(item)
 
     def pop(self) -> Union[int, float]:
-        return self.items.pop()
+        try:
+            return self.items.pop()
+        except IndexError:
+            raise IndexError('pop from empty stack')
 
 
 class Calculator:
@@ -46,10 +49,7 @@ class Calculator:
         self.__stack.push(values)
 
     def pop(self) -> Union[int, float]:
-        try:
-            return self.__stack.pop()
-        except IndexError:
-            raise IndexError('pop from empty stack')
+        return self.__stack.pop()
 
 
 def input_data():
@@ -77,22 +77,21 @@ def run(calc: Calculator, expression):
         '*': 'multiply'
     }
     for item in expression:
-        try:
-            if item not in actions:
-                run_calcalation_method(
-                    calc=calc, action='push', value=int(item))
-                continue
-            run_calcalation_method(calc=calc, action=actions.get(item))
-        except Exception as e:
-            print(f'произошла ошибка {e}')
-        else:
-            run_calcalation_method(calc=calc, action='pop')
+        if item not in actions:
+            run_calcalation_method(
+                calc=calc, action='push', value=int(item))
+            continue
+        run_calcalation_method(calc=calc, action=actions.get(item))
+    run_calcalation_method(calc=calc, action='pop')
 
 
 def main():
     calc = Calculator()
     expression = input_data()
-    run(calc=calc, expression=expression)
+    try:
+        run(calc=calc, expression=expression)
+    except Exception as e:
+        print(f'произошла ошибка {e}')
 
 
 if __name__ == '__main__':
