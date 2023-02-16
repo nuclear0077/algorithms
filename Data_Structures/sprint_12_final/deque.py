@@ -76,19 +76,16 @@ def run_deque_method(deque: Deque, command: List):
         run_command(command[1])
 
 
-def run_command(command_amount: int, max_size_deque: int):
-    deque = Deque(max_size_deque)
-    for _ in range(command_amount):
-        try:
-            run_deque_method(deque, get_command())
-        except (EmptyDequeError, FullDequeError):
-            print('error')
-
-
 def main():
     command_amount: int = int(input())
     max_size_deque: int = int(input())
-    run_command(command_amount, max_size_deque)
+    deque = Deque(max_size_deque)
+    for _ in range(command_amount):
+        input_command = get_command()
+        try:
+            run_deque_method(deque, input_command)
+        except (EmptyDequeError, FullDequeError):
+            print('error')
 
 
 if __name__ == '__main__':
