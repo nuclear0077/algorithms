@@ -3,11 +3,11 @@
 from typing import List
 
 
-class EmptyStackError(Exception):
+class EmptyDequeError(Exception):
     pass
 
 
-class FullStackError(Exception):
+class FullDequeError(Exception):
     pass
 
 
@@ -19,6 +19,12 @@ class Deque:
         self.__tail: int = 0
         self.__size: int = 0
 
+    def __inc_index(self, value: int) -> int:
+        return (value + 1) % self.__max_size
+
+    def __dec_index(self, value: int) -> int:
+        return (value - 1) % self.__max_size
+
     def is_empty(self) -> bool:
         return self.__size == 0
 
@@ -27,32 +33,32 @@ class Deque:
 
     def push_back(self, item) -> None:
         if self.is_full():
-            raise EmptyStackError('Стек переполнен')
+            raise FullDequeError('Стек переполнен')
         self.__deque[self.__tail] = item
-        self.__tail = (self.__tail + 1) % self.__max_size
+        self.__tail = self.__inc_index(self.__tail)
         self.__size += 1
 
     def push_front(self, item) -> None:
         if self.is_full():
-            raise EmptyStackError('Стек переполнен')
-        self.__deque[self.__head - 1] = item
+            raise FullDequeError('Стек переполнен')
+        self.__deque[self.__dec_index(self.__head)] = item
         self.__head -= 1
         self.__size += 1
 
     def pop_front(self):
         if self.is_empty():
-            raise EmptyStackError('Стек пустой')
+            raise EmptyDequeError('Стек пустой')
         item = self.__deque[self.__head]
         self.__deque[self.__head] = None
-        self.__head = (self.__head + 1) % self.__max_size
+        self.__head = self.__inc_index(self.__head)
         self.__size -= 1
         return item
 
     def pop_back(self):
         if self.is_empty():
-            raise EmptyStackError('Стек пустой')
-        item = self.__deque[self.__tail - 1]
-        self.__deque[self.__tail - 1] = None
+            raise EmptyDequeError('Стек пустой')
+        item = self.__deque[self.__dec_index(self.__tail)]
+        self.__deque[self.__dec_index(self.__tail)] = None
         self.__size -= 1
         self.__tail -= 1
         return item
@@ -75,17 +81,14 @@ def run_command(command_amount: int, max_size_deque: int):
     for _ in range(command_amount):
         try:
             run_deque_method(deque, get_command())
-        except (EmptyStackError, FullStackError):
+        except (EmptyDequeError, FullDequeError):
             print('error')
 
 
 def main():
     command_amount: int = int(input())
     max_size_deque: int = int(input())
-    try:
-        run_command(command_amount, max_size_deque)
-    except (EmptyStackError, FullStackError):
-        print('error')
+    run_command(command_amount, max_size_deque)
 
 
 if __name__ == '__main__':

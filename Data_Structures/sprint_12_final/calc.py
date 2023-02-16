@@ -76,6 +76,8 @@ def run(calc: Calculator, expression):
         '//': 'integer_devision',
         '*': 'multiply'
     }
+    # :TODO наверное exception надо обработать в цилке? чтобы
+    # при повлении ошибки, цикл не прерывался
     for item in expression:
         if item not in actions:
             run_calcalation_method(
