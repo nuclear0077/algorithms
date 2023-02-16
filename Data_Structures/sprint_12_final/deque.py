@@ -1,4 +1,4 @@
-# 82340964
+# 82404813
 # https://contest.yandex.ru/contest/23759/problems/A/
 from typing import List
 
@@ -71,9 +71,8 @@ def get_command() -> List:
 def run_deque_method(deque: Deque, command: List):
     run_command = getattr(deque, command[0])
     if 'push' not in command[0]:
-        print(run_command())
-    else:
-        run_command(command[1])
+        return run_command()
+    return run_command(command[1])
 
 
 def main():
@@ -83,7 +82,9 @@ def main():
     for _ in range(command_amount):
         input_command = get_command()
         try:
-            run_deque_method(deque, input_command)
+            result = run_deque_method(deque, input_command)
+            if result:
+                print(result)
         except (EmptyDequeError, FullDequeError):
             print('error')
 

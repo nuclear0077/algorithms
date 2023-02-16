@@ -1,99 +1,52 @@
-# 82380879
+# 82407868
 # https://contest.yandex.ru/contest/23759/problems/B/
-from typing import Dict, Union
+from typing import List, Union, Any
+
+OPERATIONS = {
+    '+': lambda x, y: x + y,
+    '-': lambda x, y: x - y,
+    '/': lambda x, y: x // y,
+    '//': lambda x, y: x // y,
+    '*': lambda x, y: x * y,
+    }
+
+
+class StackIndexError(IndexError):
+    pass
 
 
 class Stack:
-    def __init__(self):
-        self.items = []
+    def __init__(self) -> None:
+        self.__items: List[Any] = []
 
     def push(self, item: Union[int, float]) -> None:
-        self.items.append(item)
+        self.__items.append(item)
 
     def pop(self) -> Union[int, float]:
         try:
-            return self.items.pop()
+            return self.__items.pop()
         except IndexError:
-            raise IndexError('pop from empty stack')
+            raise StackIndexError('pop from empty stack')
 
 
-class Calculator:
-    def __init__(self) -> None:
-        self.__stack = Stack()
-
-    def multiply(self) -> None:
-        num_second = self.__stack.pop()
-        num_first = self.__stack.pop()
-        result = num_first * num_second
-        self.__stack.push(result)
-
-    def integer_devision(self) -> None:
-        num_second = self.__stack.pop()
-        num_first = self.__stack.pop()
-        result = num_first // num_second
-        self.__stack.push(result)
-
-    def subtraction(self) -> None:
-        num_second = self.__stack.pop()
-        num_first = self.__stack.pop()
-        result = num_first - num_second
-        self.__stack.push(result)
-
-    def addition(self) -> None:
-        num_second = self.__stack.pop()
-        num_first = self.__stack.pop()
-        result = num_first + num_second
-        self.__stack.push(result)
-
-    def push(self, values: Union[int, float]) -> None:
-        self.__stack.push(values)
-
-    def pop(self) -> Union[int, float]:
-        return self.__stack.pop()
-
-
-def input_data():
+def input_data() -> List[Any]:
     return input().split()
 
 
-def run_calcalation_method(calc: Calculator,
-                           action: str,
-                           value: Union[int, float] = None):
-    run_command = getattr(calc, action)
-    if action == 'push':
-        run_command(value)
-    elif action == 'pop':
-        print(run_command())
-    else:
-        run_command()
-
-
-def run(calc: Calculator, expression):
-    actions: Dict[str, str] = {
-        '+': 'addition',
-        '-': 'subtraction',
-        '/': 'integer_devision',
-        '//': 'integer_devision',
-        '*': 'multiply'
-    }
-    # :TODO наверное exception надо обработать в цилке? чтобы
-    # при повлении ошибки, цикл не прерывался
+def calculator(stack: Stack, expression):
     for item in expression:
-        if item not in actions:
-            run_calcalation_method(
-                calc=calc, action='push', value=int(item))
-            continue
-        run_calcalation_method(calc=calc, action=actions.get(item))
-    run_calcalation_method(calc=calc, action='pop')
+        if item in OPERATIONS:
+            x, y = stack.pop(), stack.pop()
+            stack.push(OPERATIONS.get(item)(y, x))
+        else:
+            stack.push(int(item))
+    return stack.pop()
 
 
 def main():
-    calc = Calculator()
+    stack = Stack()
     expression = input_data()
-    try:
-        run(calc=calc, expression=expression)
-    except Exception as e:
-        print(f'произошла ошибка {e}')
+    print(calculator(stack=stack, expression=expression))
 
 
 if __name__ == '__main__':
