@@ -1,4 +1,4 @@
-# 82404813
+# 82556511
 # https://contest.yandex.ru/contest/23759/problems/A/
 from typing import List
 
@@ -19,10 +19,9 @@ class Deque:
         self.__tail: int = 0
         self.__size: int = 0
 
-    def __inc_index(self, value: int) -> int:
-        return (value + 1) % self.__max_size
-
-    def __dec_index(self, value: int) -> int:
+    def __calc_index(self, value: int, add: bool = False) -> int:
+        if add:
+            return (value + 1) % self.__max_size
         return (value - 1) % self.__max_size
 
     def is_empty(self) -> bool:
@@ -35,13 +34,13 @@ class Deque:
         if self.is_full():
             raise FullDequeError('Стек переполнен')
         self.__deque[self.__tail] = item
-        self.__tail = self.__inc_index(self.__tail)
+        self.__tail = self.__calc_index(self.__tail, add=True)
         self.__size += 1
 
     def push_front(self, item) -> None:
         if self.is_full():
             raise FullDequeError('Стек переполнен')
-        self.__deque[self.__dec_index(self.__head)] = item
+        self.__deque[self.__calc_index(self.__head)] = item
         self.__head -= 1
         self.__size += 1
 
@@ -50,15 +49,15 @@ class Deque:
             raise EmptyDequeError('Стек пустой')
         item = self.__deque[self.__head]
         self.__deque[self.__head] = None
-        self.__head = self.__inc_index(self.__head)
+        self.__head = self.__calc_index(self.__head, add=True)
         self.__size -= 1
         return item
 
     def pop_back(self):
         if self.is_empty():
             raise EmptyDequeError('Стек пустой')
-        item = self.__deque[self.__dec_index(self.__tail)]
-        self.__deque[self.__dec_index(self.__tail)] = None
+        item = self.__deque[self.__calc_index(self.__tail)]
+        self.__deque[self.__calc_index(self.__tail)] = None
         self.__size -= 1
         self.__tail -= 1
         return item
