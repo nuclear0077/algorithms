@@ -640,7 +640,7 @@
 ## Основные структуры данных с финальными задачами.
 <details>
 <summary>
-<b>Мониторинг (<a href="Data_Structures/monitoring.py">a_monitoring.py</a></b>)
+<b>Мониторинг (<a href="Data_Structures/monitoring.py">monitoring.py</a></b>)
 </summary>
 
 #### Условие:
