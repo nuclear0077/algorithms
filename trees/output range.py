@@ -14,7 +14,7 @@ def print_range(node, l, r):
     if l <= node.value:
         print_range(node.left, l, r)
     if l <= node.value <= r:
-        print(node.value, end='')
+        print(node.value)
     if r >= node.value:
         print_range(node.right, l, r)
 
