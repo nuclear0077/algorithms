@@ -1738,7 +1738,7 @@ Fi и Pi — целые числа, лежащие в диапазоне от 0 
 
 <details>
 <summary>
-<b>Дерево поиска (<a href="trees/tree_search.py.py">tree_search.py.py</a></b>)
+<b>Дерево поиска (<a href="trees/tree_search.py">tree_search.py</a></b>)
 </summary>
 
 #### Условие:
